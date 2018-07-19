@@ -26,16 +26,39 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 class Hero {
     constructor (){
-        this.x=0;
-        this.y=0;
         this.sprite='images/char-boy.png';
+        //defining step and jump properties
+        this.step = 101;
+        this.jump = 83;
+        this.x = 0;
+        this.y = 0;
+        
     }
     //drawing a Hero on the screen using drawImage method provided in the starter code 
     render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+    handleInput(input) {
+        switch (input) {
+            // Set boundaries for player movement
+            case 'left':
+                this.x -= this.step;
+                break;
+            case 'up':
+                this.y -= this.jump;
+                break;
+            case 'right':
+                this.x += this.step;
+                break;
+            case 'down':
+                this.y +=this.jump;
+                break;
+                }
+         //player is moving
+    }
 }
 const player = new Hero();
+
 
 
 // Now instantiate your objects.
@@ -53,6 +76,6 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
