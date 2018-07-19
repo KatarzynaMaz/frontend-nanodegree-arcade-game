@@ -30,9 +30,12 @@ class Hero {
         //defining step and jump properties
         this.step = 101;
         this.jump = 83;
-        this.x = 0;
-        this.y = 0;
-        
+        //defining startX and startY properties to make sure 
+        //the player is at the buttom of the board
+        this.startX = this.step*2;
+        this.startY = this.jump*5;
+        this.x = this.startX;
+        this.y = this. startY;
     }
     //drawing a Hero on the screen using drawImage method provided in the starter code 
     render(){
