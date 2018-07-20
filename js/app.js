@@ -2,7 +2,8 @@
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    this.x = 0;
+    this.y = 0;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -33,9 +34,9 @@ class Hero {
         //defining startX and startY properties to make sure 
         //the player is at the buttom of the board
         this.startX = this.step*2;
-        this.startY = this.jump*5;
+        this.startY = this.jump*5 - 25;
         this.x = this.startX;
-        this.y = this. startY;
+        this.y = this.startY;
     }
     //drawing a Hero on the screen using drawImage method provided in the starter code 
     render(){
@@ -45,22 +46,33 @@ class Hero {
         switch (input) {
             // Set boundaries for player movement
             case 'left':
+            if(this.x > 0){
                 this.x -= this.step;
+            };
                 break;
             case 'up':
+            if(this.y > 0) {
                 this.y -= this.jump;
+            };
                 break;
             case 'right':
+            if(this.x < this.step*4){
                 this.x += this.step;
+            };
                 break;
             case 'down':
-                this.y +=this.jump;
+            if(this.y < this.jump*4){
+                this.y += this.jump;
+            };
                 break;
                 }
          //player is moving
     }
 }
 const player = new Hero();
+const firstBug = new Enemy()
+allEnemies = [];
+allEnemies.push(firstBug);
 
 
 
