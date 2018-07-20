@@ -71,7 +71,7 @@ class Hero {
 }
 const player = new Hero();
 const firstBug = new Enemy()
-allEnemies = [];
+const allEnemies = [];
 allEnemies.push(firstBug);
 
 
