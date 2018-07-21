@@ -1,9 +1,9 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x,y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-    this.x = 0;
-    this.y = 0;
+    this.x = x;
+    this.y = y + 50;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -12,7 +12,7 @@ var Enemy = function() {
     //defining restar position for the bug
     //so it walks out and in the board the same way
     this.restartPos = -this.step;
-};
+    };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if(this.x < this.step*5){
-        this.x += 100*dt;
+        this.x += 150*dt;
     } else {
         this.x = this.restartPos;
     }
@@ -31,6 +31,7 @@ Enemy.prototype.update = function(dt) {
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -80,10 +81,12 @@ class Hero {
     }
 }
 const player = new Hero();
-const firstBug = new Enemy()
+const firstBug = new Enemy(-101, 0);
+const secondBug = new Enemy(-101, 83);
+const thirdBug = new Enemy((-101*3), 83);
 const allEnemies = [];
-allEnemies.push(firstBug);
-
+allEnemies.push(firstBug,secondBug,thirdBug);
+console.log(allEnemies);
 
 
 // Now instantiate your objects.
