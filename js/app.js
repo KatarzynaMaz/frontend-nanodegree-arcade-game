@@ -9,6 +9,9 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     //adding the step property
     this.step = 101;
+    //defining restar position for the bug
+    //so it walks out and in the board the same way
+    this.restartPos = -this.step;
 };
 
 // Update the enemy's position, required method for game
@@ -18,9 +21,9 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if(this.x < this.step*5){
-        this.x += 50*dt;
+        this.x += 100*dt;
     } else {
-        this.x = 0;
+        this.x = this.restartPos;
     }
 };
 
