@@ -47,7 +47,7 @@ class Hero {
         //defining startX and startY properties to make sure 
         //the player is at the buttom of the board
         this.startX = this.step*2;
-        this.startY = this.jump*5-25;
+        this.startY = this.jump*4 + 50;
         this.x = this.startX;
         this.y = this.startY;
     }
@@ -81,7 +81,14 @@ class Hero {
                 }
          //player is moving
     }
-    
+    update() {
+        for (let enemy of allEnemies){
+            if(this.y === enemy.y){
+                console.log('same row');
+            }
+            console.log(this.y,enemy.y);
+        }
+    }
     }
 
 const player = new Hero();
