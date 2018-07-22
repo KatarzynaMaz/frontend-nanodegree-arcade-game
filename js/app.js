@@ -83,8 +83,9 @@ class Hero {
     }
     update() {
         for (let enemy of allEnemies){
-            if(this.y === enemy.y){
-                console.log('same row');
+            if(this.y === enemy.y && (this.x < enemy.x + enemy.step/3 && enemy.x < this.x + this.step/3)){
+              //console.log('Collide');
+            alert('Collide');
             }
             console.log(this.y,enemy.y);
         }
