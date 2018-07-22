@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(x,y) {
+var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
@@ -9,6 +9,8 @@ var Enemy = function(x,y) {
     this.sprite = 'images/enemy-bug.png';
     //adding the step property
     this.step = 101;
+    //adding speed property
+    this.speed = speed;
     //defining restar position for the bug
     //so it walks out and in the board the same way
     this.restartPos = -this.step;
@@ -21,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if(this.x < this.step*5){
-        this.x += 150*dt;
+        this.x += this.speed*dt;
     } else {
         this.x = this.restartPos;
     }
@@ -45,7 +47,7 @@ class Hero {
         //defining startX and startY properties to make sure 
         //the player is at the buttom of the board
         this.startX = this.step*2;
-        this.startY = this.jump*5 - 25;
+        this.startY = this.jump*5-25;
         this.x = this.startX;
         this.y = this.startY;
     }
@@ -79,11 +81,13 @@ class Hero {
                 }
          //player is moving
     }
-}
+    
+    }
+
 const player = new Hero();
-const firstBug = new Enemy(-101, 0);
-const secondBug = new Enemy(-101, 83);
-const thirdBug = new Enemy((-101*3), 83);
+const firstBug = new Enemy(-101, 0, 200);
+const secondBug = new Enemy(-101, 83, 300);
+const thirdBug = new Enemy((-101*2.5), 83, 300);
 const allEnemies = [];
 allEnemies.push(firstBug,secondBug,thirdBug);
 console.log(allEnemies);
