@@ -83,14 +83,21 @@ class Hero {
     }
     update() {
         for (let enemy of allEnemies){
+            //check the collision condition
             if(this.y === enemy.y && (this.x < enemy.x + enemy.step/3 && enemy.x < this.x + this.step/3)){
-              //console.log('Collide');
-            alert('Collide');
+            //console.log('Collide');
+            //alert('Collide');
+            this.reset();
             }
             console.log(this.y,enemy.y);
         }
+        }
+        reset() {
+            this.x = this.startX;
+            this.y = this.startY;
+        }
     }
-    }
+    
 
 const player = new Hero();
 const firstBug = new Enemy(-101, 0, 200);
