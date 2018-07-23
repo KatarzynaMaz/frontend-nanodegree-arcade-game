@@ -81,7 +81,7 @@ class Hero {
                 break;
                 }
          //player is moving
-    }
+    };
     update() {
         for (let enemy of allEnemies){
             //check the collision condition
@@ -96,13 +96,12 @@ class Hero {
             alert('You win');
             this. reset();
         }
-        }
+        };
         reset() {
             this.x = this.startX;
             this.y = this.startY;
         }
-        
-    }
+        };
     
 
 const player = new Hero();
