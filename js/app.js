@@ -50,6 +50,7 @@ class Hero {
         this.startY = this.jump*4 + 50;
         this.x = this.startX;
         this.y = this.startY;
+      
     }
     //drawing a Hero on the screen using drawImage method provided in the starter code 
     render(){
@@ -85,24 +86,29 @@ class Hero {
         for (let enemy of allEnemies){
             //check the collision condition
             if(this.y === enemy.y && (this.x < enemy.x + enemy.step/3 && enemy.x < this.x + this.step/3)){
-            //console.log('Collide');
-            //alert('Collide');
+           //if anemy and the player collide, the player is set to to the starting position
             this.reset();
-            }
-            console.log(this.y,enemy.y);
+        }
+            //console.log(this.y,enemy.y);
+        }
+        //check for win
+        if (this.y === 55){
+            alert('You win');
+            this. reset();
         }
         }
         reset() {
             this.x = this.startX;
             this.y = this.startY;
         }
+        
     }
     
 
 const player = new Hero();
 const firstBug = new Enemy(-101, 0, 200);
 const secondBug = new Enemy(-101, 83, 300);
-const thirdBug = new Enemy((-101*2.5), 83, 300);
+const thirdBug = new Enemy((-101*3), 83, 300);
 const allEnemies = [];
 allEnemies.push(firstBug,secondBug,thirdBug);
 console.log(allEnemies);
