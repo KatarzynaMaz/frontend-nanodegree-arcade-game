@@ -52,10 +52,29 @@ class Hero {
         this.y = this.startY;
       
     }
+    update() {
+        for (let enemy of allEnemies){
+            //check the collision condition
+            if(this.y === enemy.y && (this.x < enemy.x + enemy.step/3 && enemy.x < this.x + this.step/3)){
+           //if anemy and the player collide, the player is set to to the starting position
+            this.reset();
+            }
+            //console.log(this.y,enemy.y);
+            }
+            //check for win
+        if (this.y === -33){
+            alert('You win');
+            this.reset();
+             }
+             console.log(player.y)
+             console.log(this)
+             }; 
+   
     //drawing a Hero on the screen using drawImage method provided in the starter code 
     render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+
     handleInput(input) {
         switch (input) {
             // Set boundaries for player movement
@@ -80,28 +99,14 @@ class Hero {
             };
                 break;
                 }
-         //player is moving
-    };
-    update() {
-        for (let enemy of allEnemies){
-            //check the collision condition
-            if(this.y === enemy.y && (this.x < enemy.x + enemy.step/3 && enemy.x < this.x + this.step/3)){
-           //if anemy and the player collide, the player is set to to the starting position
-            this.reset();
-        }
-            //console.log(this.y,enemy.y);
-        }
-        //check for win
-        if (this.y === 55){
-            alert('You win');
-            this. reset();
-        }
+                //player is moving
         };
+    
         reset() {
             this.x = this.startX;
             this.y = this.startY;
-        }
-        };
+            }
+            };
     
 
 const player = new Hero();
