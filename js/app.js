@@ -27,7 +27,7 @@ Enemy.prototype.update = function(dt) {
     } else {
         this.x = this.restartPos;
     }
-};
+    };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -38,6 +38,7 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+
 class Hero {
     constructor (){
         this.sprite='images/char-boy.png';
@@ -54,7 +55,6 @@ class Hero {
     }
     update() {
             for (let enemy of allEnemies){
-
             //check the collision condition
             if(this.y === enemy.y && (this.x < enemy.x + enemy.step/3 && enemy.x < this.x + this.step/3)){
            //if anemy and the player collide, the player is set to to the starting position
@@ -64,26 +64,25 @@ class Hero {
             }
             //check for win
             if (this.y === -33){
-                //console.log('win');
                 setTimeout(()=>{
                     this.reset();
-                },10);
-            setTimeout(()=>{
-                alert('You win');
-            },15);
+                },8);
+                 setTimeout(()=>{
+                    alert('You win');
+                },12);
             }
                 console.log(player.y);
-                //console.log(this);
-             }; 
+        }; 
    
     //drawing a Hero on the screen using drawImage method provided in the starter code 
+
     render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
     handleInput(input) {
         switch (input) {
-            // Set boundaries for player movement
+        // Set boundaries for player movement
             case 'left':
             if(this.x > 0){
                 this.x -= this.step;
@@ -105,33 +104,30 @@ class Hero {
             };
                 break;
                 }
-                //player is moving
-        };
-    
+    };
         reset() {
             this.x = this.startX;
             this.y = this.startY;
-            }
-            };
+        }
+    };
     
-
-const player = new Hero();
-const firstBug = new Enemy(-101, 0, 200);
-const secondBug = new Enemy(-101, 83, 300);
-const thirdBug = new Enemy((-101*3), 83, 300);
-const allEnemies = [];
-allEnemies.push(firstBug,secondBug,thirdBug);
-console.log(allEnemies);
-
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+const player = new Hero();
+const firstBug = new Enemy(-101, 0, 200);
+const secondBug = new Enemy(-101, 83, 300);
+const thirdBug = new Enemy((-101*2.5), 83, 100);
+const fourthBug = new Enemy(-101, 166,150);
+const allEnemies = [];
+allEnemies.push(firstBug,secondBug,thirdBug,fourthBug);
+console.log(allEnemies);
 
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
+
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
