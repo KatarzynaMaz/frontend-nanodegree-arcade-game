@@ -1,6 +1,26 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Run the game ##
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+To get started download or clone the repo to your local machine. Then open index.html file in your browser.
+
+## Play the game ##
+
+The object of this game is to get the Player to the water without colliding with any of the Enemies. You can move
+the Player left, righ, up and down using the arrow keys. If the Player bumps into any of the Enemy, the game gets reset. 
+When the Player reaches the water, you win the game. 
+
+## Credits ##
+
+1. Matthew Cranford Game Walkthrough [Blog](https://matthewcranford.com/arcade-game-walkthrough-part-1-starter-code-breakdown/)  
+
+2. Rodrick Bloomfield Walkthough [video](https://zoom.us/recording/play/aulotDlzKFegQFIJTaTzKgWvNkVsYtlwO454vL1UPE1Cm6lOUBQCtfVurPOIAGAS?startTime=1529542978000)
+
+3. Ryan Boris Walkthrough [video](https://www.youtube.com/watch?v=JcQYGbg0IkQ&feature=youtu.be)
+
+4. Slack and Forum discussions
+
+## Contributing ##
+
+It is a personal project for the Udacity course. Contrbutions will not be accepted.
