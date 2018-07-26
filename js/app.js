@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -7,17 +8,18 @@ var Enemy = function(x,y,speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    //adding the step property
+    //adding the step property (for setting boundries)
     this.step = 101;
     //adding speed property
     this.speed = speed;
     //defining restar position for the bug
     //so it walks out and in the board the same way
     this.restartPos = -this.step;
-    };
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
+
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -27,9 +29,10 @@ Enemy.prototype.update = function(dt) {
     } else {
         this.x = this.restartPos;
     }
-    };
+};
 
 // Draw the enemy on the screen, required method for game
+
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -42,7 +45,7 @@ Enemy.prototype.render = function() {
 class Hero {
     constructor (){
         this.sprite='images/char-boy.png';
-        //defining step and jump properties
+        //defining step and jump properties for moving the player
         this.step = 101;
         this.jump = 83;
         //defining startX and startY properties to make sure 
@@ -52,6 +55,10 @@ class Hero {
         this.x = this.startX;
         this.y = this.startY;
     }
+
+    //checking for collisions and for a win.Resetting the player
+    //to starting postion after the win
+
     update() {
             for (let enemy of allEnemies){
             //check the collision condition
@@ -59,7 +66,7 @@ class Hero {
            //if anemy and the player collide, the player is set to to the starting position
                this.reset();
             }
-            console.log(this.y,enemy.y);
+                //console.log(this.y,enemy.y);
             }
             //check for win
             if (this.y === -33){
@@ -70,14 +77,16 @@ class Hero {
                     alert('You win');
                 },12);
             }
-                console.log(player.y);
-        }; 
+                //console.log(player.y);
+    } 
    
-    //drawing a Hero on the screen using drawImage method provided in the starter code 
+    //drawing Player on the screen using drawImage method provided in the starter code 
 
     render(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+
+    //handleInput method receives input from the user and moves the player accordingly
 
     handleInput(input) {
         switch (input) {
@@ -103,12 +112,14 @@ class Hero {
             };
                 break;
                 }
-    };
-        reset() {
-            this.x = this.startX;
-            this.y = this.startY;
+    }
+        //Resetting the player to the startig position
+
+    reset() {
+        this.x = this.startX;
+        this.y = this.startY;
         }
-    };
+    }
     
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
