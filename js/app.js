@@ -51,7 +51,6 @@ class Hero {
         this.startY = this.jump*4 + 50;
         this.x = this.startX;
         this.y = this.startY;
-      
     }
     update() {
             for (let enemy of allEnemies){
